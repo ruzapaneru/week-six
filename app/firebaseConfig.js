@@ -1,18 +1,17 @@
-// app/firebaseConfig.js
 import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
 
-// ✅ Correct Firebase config
+// Use environment variables
 const firebaseConfig = {
-  apiKey: "AIzaSyBV3JcDpukcdmLMD8Y-xL0z2XsAZEj7ZP0",
-  authDomain: "touristguideapp-fa971.firebaseapp.com",
-  databaseURL: "https://touristguideapp-fa971-default-rtdb.firebaseio.com",
-  projectId: "touristguideapp-fa971",
-  storageBucket: "touristguideapp-fa971.appspot.com",
-  messagingSenderId: "188737247853",
-  appId: "1:188737247853:web:887cc41a4f632f79727d64",
+  apiKey: process.env.EXPO_PUBLIC_API_KEY,
+  authDomain: process.env.EXPO_PUBLIC_AUTH_DOMAIN,
+  databaseURL: process.env.EXPO_PUBLIC_DATABASE_URL,
+  projectId: process.env.EXPO_PUBLIC_PROJECT_ID,
+  storageBucket: process.env.EXPO_PUBLIC_STORAGE_BUCKET,
+  messagingSenderId: process.env.EXPO_PUBLIC_MESSAGING_SENDER_ID,
+  appId: process.env.EXPO_PUBLIC_APP_ID,
 };
 
-// Initialize Firebase + Realtime Database
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const db = getDatabase(app);
